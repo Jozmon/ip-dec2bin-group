@@ -1,12 +1,27 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+
+//because prompt is repeatable it became a function
+void continue_prompt(){
+	int ch;
+	
+	
+    //press any key to continue prompt
+    while ( (ch = getchar()) != '\n' && ch != EOF) ;
+    
+    printf("\n\n\n\n\n");
+	printf("Press any key to continue\n");
+    while ( (ch = getchar()) != '\n' && ch != EOF);	
+	
+	
+}
 
 
 
-
-
-
-void menu()
+void print_menu()
 {
+	printf("\n\n\n\n\n\n");
     printf("############################################################################\n");
     printf("##                                                                        ##\n");
     printf("##                 Software Name:IP2BIN                                   ##\n");
@@ -42,6 +57,8 @@ void bin2dec(){
 	printf("Enter 32-bit IP address in dotted binary notation (xxx.xxx.xxx.xxx)\n: ");
 	scanf ("%d.%d.%d.%d",&binip[1],&binip[2],&binip[3],&binip[4]);
 	
+	printf("\n\n\n");
+	
 	while ( n < rep ){
 		
 		//check ip validity
@@ -72,12 +89,13 @@ void bin2dec(){
 		
 	
 	}
-
+    printf("\n\n\n\n\n");
 	printf ("The binary ip : %d.%d.%d.%d\n",binip[1],binip[2],binip[3],binip[4]);
 	printf ("The decimal ip: %d.%d.%d.%d",decip[1],decip[2],decip[3],decip[4]);
 
 	
-	
+	//prompt
+	continue_prompt();
 
 }
 
@@ -98,8 +116,11 @@ void dec2bin(){
 	
 	printf("Enter 32-bit IP address in dotted decimal notation (xxx.xxx.xxx.xxx)\n: ");
 	scanf ("%d.%d.%d.%d",&decip[1],&decip[2],&decip[3],&decip[4]);
+    printf("\n\n\n\n\n");
+	
 	
 	printf ("The decimal ip: %d.%d.%d.%d\n",decip[1],decip[2],decip[3],decip[4]);
+	printf ("The binary ip :");
 	
 	while ( n < rep ){
 		
@@ -133,8 +154,9 @@ void dec2bin(){
 	}
 	
 
-	//printf ("The binary ip : %d.%d.%d.%d\n",binip[1],binip[2],binip[3],binip[4]);
-	
+
+	//prompt
+	continue_prompt();
 	
 
 }
@@ -142,38 +164,37 @@ void dec2bin(){
 
 
 int main() {
- int mode = 0;
 
+int choice;
  
-while ( mode == 0 ){
-	 
-	 menu();
-	 
-	 
-	 scanf  ("%d",&mode);
-	 
-	 
-if ( mode == 1 ){
+    do
+    {
+        print_menu();
+        scanf("%d",&choice);
+ 
+        switch(choice)
+        {
+            case 1: dec2bin(); break;
+            case 2: bin2dec(); break;
+            case 3: printf("Exiting program!\n"); exit(0); break;
+            default: printf("Invalid choice!\n"); break;
+        }
+  } while (choice != 3);
 
 
-bin2dec();
-	 
-}else if( mode == 2){
-			
-dec2bin();
-	
-}
-		
-	 
-	 
-}
-  
-  
+
+
   
   return 0;
   
   
 }
+
+
+
+
+
+
 
 
 
