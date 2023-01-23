@@ -21,14 +21,13 @@ void continue_prompt(){
 
 void print_menu()
 {
-	printf("\n\n\n\n\n\n");
-    printf("############################################################################\n");
-    printf("##                                                                        ##\n");
-    printf("##                 Software Name:IP2BIN                                   ##\n");
-    printf("##                 Author:Jozmon                                          ##\n");
-    printf("##                 Function:Convert ip to and from binary                 ##\n");
-    printf("##                                                                        ##\n");
-    printf("############################################################################\n");
+    printf("############################################################\n");
+    printf("##                                                        ##\n");
+    printf("##         Software Name:IP2BIN                           ##\n");
+    printf("##         Author:Jozmon                                  ##\n");
+    printf("##         Function:Convert ip to and from binary         ##\n");
+    printf("##                                                        ##\n");
+    printf("############################################################\n");
     printf("\n");
     printf("\n");
     printf("Select one of the following options:\n");
@@ -147,8 +146,9 @@ void dec2bin(){
 			printf("%d", bin[j]);
 			j--;
 		  }
+		if (3 >= n){
 		printf (".");
-
+		}
 		++n;
 	
 	}
@@ -189,10 +189,6 @@ int choice;
   
   
 }
-
-
-
-
 
 
 
