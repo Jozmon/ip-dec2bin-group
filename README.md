@@ -7,7 +7,7 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Ip Dec2Bin</h3>
+  <h3 align="center">IP Dec2Bin</h3>
 
   <p align="center">
     Ip-dec2bin is a cross-platform open-source interactive tool 
@@ -114,7 +114,31 @@ After the compilation to run it use command with bash on linux or cmd on windows
   ```sh
 ./ip-bin2dec
    ```
+Then select one of two options:
+1 to convert IP address from decimal to binary
+2 to convert IP address from binary to decimal
 
+Write the number of the option to the terminal and press enter:
+
+### Option 1 Decimal To Binary
+When selecting option 1 provide an IP address in decimal form
+like this 192.168.1.12 and press enter
+
+Then the IP address will be printed in binary form
+
+After that you will brought back to the main menu.
+You can do another operation or exit 
+by selecting the options using the numbers.
+
+### Option 2 binary to decimal
+When selecting option 2 provide an ip address in binary form
+like this 1001.10.11.1111 and press enter
+
+Then the IP address will be printed in decimal form
+
+After that you will brought back to the main menu.
+You can do another operation or exit 
+by selecting the options using the numbers.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
