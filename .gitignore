@@ -3,3 +3,5 @@ ip-dec2bin
 
 # ignore all .o files
 *.o
+*.zip
+*.exe

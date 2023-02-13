@@ -67,33 +67,55 @@ It's a simple converter that takes IP in binary or decimal form and converters i
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple steps.
     <br>
     <br>
-### Prerequisites
-You will need:
-1. C preprocessor
-2. C compiler 
+### Linux Prerequisites
 
-* To  install cpp
+You will need:<br>
+1. C preprocessor<br>
+2. C compiler <br>
+
+* To  install cpp preprocessor
   ```sh
   apt-get install cpp
   ```
  
 
-* To  install gcc
+* To  install gcc compiler
   ```sh
   apt-get install gcc
   ```
-  
-    <br>
-    <br>
+<br>
+
+### Windows Prerequisites
+
+1. Download dev-C++ from [here](dev-C++)
+2. Install dev-C++ by executing the downloaded executable
+
+
+<br>
+
     
-### Installation
+### Windows Compilation
+
+
+1. Navigate using your browser [here](master-url) 
+2. Click on code then click again on download zip
+3. Extract the zip 
+4. Open dev-C++ click on file and open
+5. Navigate and open file ip-dec2bin.cpp 
+6. Open menu Execute and click on compile
+7. Finished you will now have an executable file!
+
+<br>
+
+
+### Linux Compilation
 
 
 
-1. Clone the repo
+1. Clone the repo <br>
    ```sh
    git clone https://github.com/Jozmon/ip-dec2bin-private
    ```
@@ -107,38 +129,70 @@ You will need:
 
 
 
-<!-- USAGE EXAMPLES -->
-## Usage
+<!-- EXECUTION -->
+## Execution
 
-After the compilation to run it use command with bash on linux or cmd on windows.
+After the compilation is completed to execute it<br>
+use one of the following instructions depending on your os:
+
+### Run on linux
+<br>
+Open your terminal emulator and type
+<br>
   ```sh
 ./ip-bin2dec
    ```
-Then select one of two options:
-1 to convert IP address from decimal to binary
-2 to convert IP address from binary to decimal
+<br>
+
+### Run on windows
+Open cmd and write:
+```
+.\ip-bin2dec
+```
+
+or by double clicking on the ip-dec2bin from your explorer.exe
+<br>
+<br>
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+
+To use select one of two options:<br>
+1 to convert IP address from decimal to binary <br>
+2 to convert IP address from binary to decimal <br>
 
 Write the number of the option to the terminal and press enter:
+<br>
 
 ### Option 1 Decimal To Binary
-When selecting option 1 provide an IP address in decimal form
+
+When selecting option 1 provide an IP address in decimal form<br>
 like this 192.168.1.12 and press enter
+<br>
 
 Then the IP address will be printed in binary form
+<br>
 
-After that you will brought back to the main menu.
-You can do another operation or exit 
+After that you will brought back to the main menu.<br>
+You can do another operation or exit <br>
 by selecting the options using the numbers.
+<br>
 
 ### Option 2 binary to decimal
-When selecting option 2 provide an ip address in binary form
+When selecting option 2 provide an ip address in binary form<br>
 like this 1001.10.11.1111 and press enter
+<br>
 
 Then the IP address will be printed in decimal form
+<br>
 
-After that you will brought back to the main menu.
-You can do another operation or exit 
+After that you will brought back to the main menu. <br>
+You can do another operation or exit <br>
 by selecting the options using the numbers.
+
+<br>
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -187,6 +241,6 @@ Project Link: [https://github.com/Jozmon/ip-dec2bin-private](https://github.com/
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: images/screenshot.png
-
-
+[maste-url]: https://github.com/Jozmon/ip-dec2bin-private
+[dev-C++]: https://sourceforge.net/projects/orwelldevcpp/files/latest/download
 
