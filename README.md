@@ -96,7 +96,9 @@ You will need:<br>
 
 <br>
 
-    
+## Compiling The Code
+<!-- ABOUT THE PROJECT -->
+
 ### Windows Compilation
 
 
