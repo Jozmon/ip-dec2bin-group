@@ -5,16 +5,25 @@
 //because prompt is repeatable it became a function
 void continue_prompt(){
 	int ch;
+    
 	
-	
-    //press any key to continue prompt
-    while ( (ch = getchar()) != '\n' && ch != EOF) ;
+    //absorb previous input
+	do {
+		ch = getchar();
+	} while( ch != EOF && ch != '\n' );
+    
     
     printf("\n\n\n\n\n");
 	printf("Press any key to continue\n");
-    while ( (ch = getchar()) != '\n' && ch != EOF);	
 	
+	//Waiting for new input
+	do {
+		ch = getchar();
+	} while( ch != EOF && ch != '\n' );
+
+
 	
+
 }
 
 
@@ -63,6 +72,8 @@ void bin2dec(){
 		//check ip validity
 		if ( binip[n] > 11111111 || binip[n] < 0){
 			printf("Invalid input string (incorrect numbers for IP address)\n");
+			continue_prompt();
+			return;
 		}
 		
 		//conversion variables
@@ -126,6 +137,9 @@ void dec2bin(){
 		//check ip validity
 		if ( decip[n] > 255 || decip[n] < 0){
 			printf("Invalid input string (incorrect numbers for IP address)\n");
+			
+			continue_prompt();
+			return;
 		}
 
 		//binip[n] = dec2bin(decip[n]);
