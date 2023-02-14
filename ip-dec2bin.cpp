@@ -39,12 +39,13 @@ void print_menu()
     printf("############################################################\n");
     printf("\n");
     printf("\n");
-    printf("Select one of the following options:\n");
     printf("\n");
     printf(" 1. Decimal to binary\n");
     printf(" 2. Binary to decimal\n");
     printf(" 3. Exit\n");
-    
+    printf("\n");
+    printf("\n");
+    printf("Select one of the following options: ");
 }
 
 
@@ -52,56 +53,82 @@ void print_menu()
 void bin2dec(){
 	
 	//
-	int binip[4];
+	int binary_ip[4];
 	
 
 	//
-	int decip[4];
+	int decimal_ip[4];
 	
-	//number of conversions
-	int rep=5;
-	int n=1;
+
 	
 	printf("Enter 32-bit IP address in dotted binary notation (xxx.xxx.xxx.xxx)\n: ");
-	scanf ("%d.%d.%d.%d",&binip[1],&binip[2],&binip[3],&binip[4]);
+	scanf ("%d.%d.%d.%d",&binary_ip[0],&binary_ip[1],&binary_ip[2],&binary_ip[3]);
 	
 	printf("\n\n\n");
 	
-	while ( n < rep ){
+	
+	//checks each binary ip for errors
+	int d_repetions=4;
+	int d_loop_counter=0;
+	
+	while ( d_loop_counter < d_repetions ){
+			// additional check to make sure each octet is binary
+		int temp = binary_ip[d_loop_counter];
 		
-		//check ip validity
-		if ( binip[n] > 11111111 || binip[n] < 0){
-			printf("Invalid input string (incorrect numbers for IP address)\n");
+		while (temp != 0) {
+			int digit = temp % 10;
+			
+			//check if digit is either 0 or 1
+			if (digit != 0 && digit != 1) {
+				printf("Conversion failed: Invalid input string %d (non-binary number)\n",binary_ip[d_loop_counter]);
+				continue_prompt();
+				return;
+			}
+			temp = temp / 10;
+			++d_loop_counter;
+		}
+		
+		
+		//check if binary ip is within range
+		
+		if ( binary_ip[d_loop_counter] > 11111111 || binary_ip[d_loop_counter] < 0){
+			printf("Invalid input string (Incorrect range for IP address part %d)\n",binary_ip[d_loop_counter]);
 			continue_prompt();
 			return;
 		}
+	}
+	
+	//number of conversions
+	int n_repetions=4;
+	int n_loop_counter=0;
+	
+	while ( n_loop_counter < n_repetions ){
 		
+
 		//conversion variables
-		int dec=0;
+		int decimal=0;
 		int base=1;
-		int bin;
-		int rem;
+		int binary_num = binary_ip[n_loop_counter];
+		int remainder;
 		
-		bin = binip[n];
-		int tmp = bin;
 		
-		while ( tmp > 0  ) {
+		while ( binary_num > 0  ) {
 		
-		rem  = tmp % 10;
-		dec  = dec + rem * base;
-		tmp  = tmp / 10;
+		remainder  = binary_num % 10;
+		decimal  = decimal + remainder * base;
+		binary_num  = binary_num / 10;
 		base = base * 2;
 	
 		}
 	
-		decip[n] = dec;
-		++n;
+		decimal_ip[n_loop_counter] = decimal;
+		++n_loop_counter;
 		
 	
 	}
     printf("\n\n\n\n\n");
-	printf ("The binary ip : %d.%d.%d.%d\n",binip[1],binip[2],binip[3],binip[4]);
-	printf ("The decimal ip: %d.%d.%d.%d",decip[1],decip[2],decip[3],decip[4]);
+	printf ("The binary ip : %d.%d.%d.%d\n",binary_ip[0],binary_ip[1],binary_ip[2],binary_ip[3]);
+	printf ("The decimal ip: %d.%d.%d.%d",decimal_ip[0],decimal_ip[1],decimal_ip[2],decimal_ip[3]);
 
 	
 	//prompt
@@ -113,40 +140,47 @@ void bin2dec(){
 
 void dec2bin(){
 	
-	//ip in binary form
-	//int binip[4];
-	
 
 	//ip in decimal form
-	int decip[4];
+	int decimal_ip[4];
 	
-	//number of conversions
-	int rep=5;
-	int n=1;
+
 	
 	printf("Enter 32-bit IP address in dotted decimal notation (xxx.xxx.xxx.xxx)\n: ");
-	scanf ("%d.%d.%d.%d",&decip[1],&decip[2],&decip[3],&decip[4]);
+	scanf ("%d.%d.%d.%d",&decimal_ip[0],&decimal_ip[1],&decimal_ip[2],&decimal_ip[3]);
     printf("\n\n\n\n\n");
 	
 	
-	printf ("The decimal ip: %d.%d.%d.%d\n",decip[1],decip[2],decip[3],decip[4]);
+	printf ("The decimal ip: %d.%d.%d.%d\n",decimal_ip[0],decimal_ip[1],decimal_ip[2],decimal_ip[3]);
 	printf ("The binary ip :");
 	
-	while ( n < rep ){
+	//error checking loop
+	int b_loop_repetions=4;
+	int b_loop_counter=0;
+	
+	while( b_loop_counter < b_loop_repetions ) {
 		
 		//check ip validity
-		if ( decip[n] > 255 || decip[n] < 0){
+		if ( decimal_ip[b_loop_counter] > 255 || decimal_ip[b_loop_counter] < 0){
 			printf("Invalid input string (incorrect numbers for IP address)\n");
 			
 			continue_prompt();
 			return;
 		}
+	++b_loop_counter;
+	}
 
-		//binip[n] = dec2bin(decip[n]);
+	//loop variables
+	int a_loop_repetions=4;
+	int a_loop_counter=0;
+	
+	//Gets each part of the ip and converts it.
+	while ( a_loop_counter < a_loop_repetions ){
+		
 		// Stores binary representation of number.
-		int bin[32]; // Assuming 32 bit integer.
-		int i=0;
-		int dec=decip[n];
+		int bin[32];      // Assuming 32 bit integer.
+		int i=0;          // Loop Counter
+		int dec=decimal_ip[a_loop_counter]; // Temporary Variable To Use In Conversion
 		   
 		while ( dec > 0 ){
 			bin[i++] = dec % 2;
@@ -154,16 +188,17 @@ void dec2bin(){
 		}
 		   
 		// Printing array in reverse order.
-		int j = i-1;
+		int r_loop_counter = i-1;
 			  
-		while (j >= 0){
-			printf("%d", bin[j]);
-			j--;
+		while (r_loop_counter >= 0){
+			printf("%d", bin[r_loop_counter]);
+			r_loop_counter--;
 		  }
-		if (3 >= n){
+		//prints ip dots for loop counter
+		if (2 >= a_loop_counter){
 		printf (".");
 		}
-		++n;
+		++a_loop_counter;
 	
 	}
 	
